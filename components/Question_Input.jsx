@@ -15,6 +15,31 @@ function QuestionInput() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(inputValue);
+    const API_KEY = process.env.NEXT_PUBLIC_SEARCH_API_KEY;
+    const SEARCH_ENGINE_ID = process.env.NEXT_PUBLIC_SEARCH_ENGINE_ID;
+
+    const data = await fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${inputValue}&alt=json`).then(res => res.json());
+    console.log(data);
+    const titles = data.items.map(result => result.title);
+    const links = data.items.map(result => result.link);
+    const displayLinks = data.items.map(result => result.displayLink);
+    //limit to 5 results
+    const limitedTitles = titles.slice(0, 5);
+    const limitedLinks = links.slice(0, 5);
+    const limitedDisplayLinks = displayLinks.slice(0, 5);
+
+    const limitedResults = limitedTitles.map((title, index) => {
+      return {
+        title,
+        displayLink: limitedDisplayLinks[index],
+        link: limitedLinks[index]
+      }
+    }
+    );
+    setResults(limitedResults);
+
+   
+
   };
 
   return (
@@ -36,9 +61,28 @@ function QuestionInput() {
         </button>
       </div>
       <ul>
-        {results.map((result, index) => (
-          <li key={index}>{result}</li>
-        ))}
+      <div className="flex  flex-wrap -mx-4">
+      <div className="flex flex-col">
+  {results.map((result, index) => (
+    <div key={index} className="mb-6">
+      <a
+        href={result.link}
+        target="_blank"
+        rel="noreferrer"
+        className="text-blue-600 hover:underline text-lg font-semibold"
+      >
+        {result.title}
+      </a>
+      <p className="text-gray-500">{result.displayLink}</p>
+    </div>
+  ))}
+</div>
+
+</div>
+
+
+
+      
       </ul>
     </form>
   );

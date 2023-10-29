@@ -24,7 +24,7 @@ const Navigation = () => {
                                 <a href="/" className={`text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition-all ease-in-out dark:text-white dark:hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium ${pathname === '/' ? 'bg-gray-200 dark:bg-gray-700 ' : ''}`}>Home</a>
                                 <a href="https://span41n.vercel.app" className={`text-gray-800 hover:text-gray-900 transition-all ease-in-out hover:bg-gray-200 dark:text-white dark:hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium ${pathname === '/about' ? 'bg-gray-200 dark:bg-gray-700 ' : ''}`}>Portfolio</a>
                                 <a href="mailto:spandansehgal@gmail.com" className={`text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition-all ease-in-out dark:text-white dark:hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium ${pathname === '/contact' ? 'bg-gray-200 dark:bg-gray-700 ' : ''}`}>Contact</a>
-                                <a href="https://github.com/SpandyBoss/" className={`text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition-all ease-in-out dark:text-white dark:hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium `}>Github Repo</a>
+                                <a href="https://github.com/sehgalspandan/" className={`text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition-all ease-in-out dark:text-white dark:hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium `}>Github Repo</a>
                             </div>
                         </div>
                     </div>

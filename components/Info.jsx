@@ -40,7 +40,7 @@ const WebsiteGuide = () => {
       </div>
 
       <p className="text-center text-gray-700">
-        Enjoy your learning journey with us! If you have any questions, our support team is here to help.
+        Enjoy your learning journey with us! If you have any questions, click on the &quot;Contact&quot; button in the navigation bar {":)"}
       </p>
     </div>
   );
